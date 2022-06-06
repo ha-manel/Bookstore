@@ -6,8 +6,7 @@ const rootReducer = combineReducers({
   books: booksReducer,
   categories: categoriesReducer,
 });
-/* eslint-disable no-underscore-dangle */
-const store = createStore(rootReducer, /* preloadedState, */
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+
+const store = createStore(rootReducer);
 
 export default store;
