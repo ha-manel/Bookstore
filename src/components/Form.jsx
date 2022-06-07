@@ -1,18 +1,47 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { addBook } from '../redux/books/books';
 
-const Form = ({ addNewBook }) => (
-  <div id="form-container">
-    <form onSubmit={addNewBook}>
-      <input type="text" id="title" placeholder="Book title" />
-      <input type="text" id="author" placeholder="Book author" />
-      <button type="submit" id="add-book">ADD BOOK</button>
-    </form>
-  </div>
-);
+const Form = () => {
+  const [title, setTitle] = useState('');
+  const [author, setAuthor] = useState('');
+  const dispatch = useDispatch();
+  const books = useSelector((state) => state.books);
 
-Form.propTypes = {
-  addNewBook: PropTypes.func.isRequired,
+  const changeTitle = (e) => {
+    setTitle(e.target.value);
+  };
+
+  const changeAuthor = (e) => {
+    setAuthor(e.target.value);
+  };
+
+  const formSubmit = (e) => {
+    e.preventDefault();
+    if (title && author) {
+      dispatch(
+        addBook({
+          id: books.length + 1,
+          title,
+          author,
+        }),
+      );
+      setTitle('');
+      setAuthor('');
+    }
+  };
+
+  return (
+    <div id="form-container">
+      <form onSubmit={formSubmit}>
+        <input type="text" id="title" placeholder="Book title" value={title} onChange={changeTitle} />
+        <input type="text" id="author" placeholder="Book author" value={author} onChange={changeAuthor} />
+        <button type="submit" id="add-book">
+          ADD BOOK
+        </button>
+      </form>
+    </div>
+  );
 };
 
 export default Form;

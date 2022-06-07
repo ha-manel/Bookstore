@@ -1,36 +1,16 @@
-import React, { useState } from 'react';
-import Book from './Book';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import Form from './Form';
+import Book from './Book';
 
 const BooksList = () => {
-  const [booksList, setBooksList] = useState([
-    {
-      id: 1,
-      title: 'test',
-      author: 'test',
-    },
-    {
-      id: 2,
-      title: 'test',
-      author: 'test',
-    },
-  ]);
-
-  const addNewBook = (title, author) => {
-    const book = {
-      id: booksList.length + 1,
-      title,
-      author,
-    };
-    setBooksList([...booksList, book]);
-  };
-
+  const books = useSelector((state) => state.books);
   return (
     <section id="books-page">
-      {booksList.map((book) => (
-        <Book key={book.id} title={book.title} author={book.author} />
+      {books.map((book) => (
+        <Book key={book.id} id={book.id} title={book.title} author={book.author} />
       ))}
-      <Form addNewBook={addNewBook} />
+      <Form />
     </section>
   );
 };
