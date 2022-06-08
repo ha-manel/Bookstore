@@ -40,6 +40,7 @@ const Form = () => {
 
   return (
     <div id="form-container">
+      <h2>ADD NEW BOOK</h2>
       <form onSubmit={formSubmit}>
         <input
           type="text"
