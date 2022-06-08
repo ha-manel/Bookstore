@@ -1,5 +1,3 @@
-// import axios from 'axios';
-
 const baseURL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/2kLjGe8d2F6O626umTAc/books';
 
 // Actions
