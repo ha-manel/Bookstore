@@ -19,6 +19,7 @@ const BooksList = () => {
           category={book.category}
         />
       ))}
+      <hr />
       <Form />
     </section>
   );
