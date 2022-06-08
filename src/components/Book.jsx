@@ -3,16 +3,18 @@ import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { removeBook } from '../redux/books/books';
 
-const Book = ({ title, author, id }) => {
+const Book = ({
+  id, title, author, category,
+}) => {
   const dispatch = useDispatch();
   const deleteBook = (bookId) => {
-    dispatch(removeBook(bookId));
+    dispatch(removeBook(Number(bookId)));
   };
 
   return (
     <div className="book-container">
       <div className="book-info">
-        <p className="book-categorie">Category</p>
+        <p className="book-categorie">{category}</p>
         <h3 className="book-title">{title}</h3>
         <h4 className="book-author">{author}</h4>
         <div className="book-buttons">
@@ -41,7 +43,8 @@ const Book = ({ title, author, id }) => {
 Book.propTypes = {
   title: PropTypes.string.isRequired,
   author: PropTypes.string.isRequired,
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
+  category: PropTypes.string.isRequired,
 };
 
 export default Book;
