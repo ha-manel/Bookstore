@@ -101,6 +101,20 @@ main {
   background-color: transparent;
 }
 
+.book-update button {
+  cursor: pointer;
+  width: 11.5rem;
+  height: 2.063rem;
+  padding: 0.438rem 1.188rem 0.5rem 1.375rem;
+  border-radius: 3px;
+  background-color: var(--primary-color);
+  color: #fff;
+  letter-spacing: 0.5px;
+  font-size: 0.813rem;
+  font-weight: 300;
+  border: none;
+}
+
 .book-buttons button:last-of-type {
   border-right: none;
 }
@@ -118,21 +132,9 @@ main {
   margin-right: 10px;
 }
 
-.circle-wrap .circle .mask,
-.circle-wrap .circle .fill {
-  width: 60px;
-  height: 60px;
-  position: absolute;
-  border-radius: 50%;
-}
-
 .mask .fill {
-  clip: rect(0px, 30px, 60px, 0px);
+  clip: rect(0, 30px, 60px, 0);
   background-color: var(--primary-color);
-}
-
-.circle-wrap .circle .mask {
-  clip: rect(0px, 60px, 60px, 30px);
 }
 
 .mask.full,
@@ -141,10 +143,23 @@ main {
   transform: rotate(180deg);
 }
 
+.circle-wrap .circle .mask,
+.circle-wrap .circle .fill {
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  border-radius: 50%;
+}
+
+.circle-wrap .circle .mask {
+  clip: rect(0, 60px, 60px, 30px);
+}
+
 @keyframes fill {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(180deg);
   }
@@ -188,20 +203,6 @@ main {
   letter-spacing: -0.4px;
 }
 
-.book-update button {
-  cursor: pointer;
-  width: 11.5rem;
-  height: 2.063rem;
-  padding: 0.438rem 1.188rem 0.5rem 1.375rem;
-  border-radius: 3px;
-  background-color: var(--primary-color);
-  color: #fff;
-  letter-spacing: 0.5px;
-  font-size: 0.813rem;
-  font-weight: 300;
-  border: none;
-}
-
 .book-update {
   border-left: 1px solid #e8e8e8;
   padding-left: 3.688rem;
@@ -216,7 +217,7 @@ hr {
   font-size: 1.25rem;
   font-weight: bold;
   letter-spacing: -0.18px;
-  color: #888888;
+  color: #888;
 }
 
 #form-container input {
@@ -226,7 +227,7 @@ hr {
   border-radius: 4px;
   border: solid 1px #e8e8e8;
   background-color: #fff;
-  color: #888888;
+  color: #888;
   font-size: 1rem;
   outline: none;
   box-sizing: border-box;
