@@ -14,7 +14,7 @@ const Book = ({
   return (
     <div className="book-container">
       <div className="book-info">
-        <p className="book-categorie">{category}</p>
+        <p className="book-category">{category}</p>
         <h3 className="book-title">{title}</h3>
         <h4 className="book-author">{author}</h4>
         <div className="book-buttons">
@@ -26,14 +26,23 @@ const Book = ({
         </div>
       </div>
       <div className="book-progress">
-        <div className="progress-text">
-          <p>50%</p>
-          <p>Completed</p>
+        <div className="circle-wrap">
+          <div className="circle">
+            <div className="mask half">
+              <div className="fill">
+                <div className="inside-circle" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <p className="percentage">50%</p>
+          <p className="completed">Completed</p>
         </div>
       </div>
       <div className="book-update">
-        <p>CURRENT CHAPTER</p>
-        <p>Chapter 17</p>
+        <p className="current-chap">CURRENT CHAPTER</p>
+        <p className="chap-num">Chapter 17</p>
         <button type="button">UPDATE PROGRESS</button>
       </div>
     </div>
